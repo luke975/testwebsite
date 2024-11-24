@@ -1,253 +1,126 @@
-<h1>Lukes Cool Website!</h1>
-<img src="thelukeweb-icon.ico">
-<title>TLW 1 - Main Page</title>
-
-<p style="font-family:Comic Sans MS"/> thelukeguide
-<a href="links/index.html">Links</a>
-<a href="web page 2/thewebpage2.html">page 2</a>
-
-<p style="font-family: Comic Sans MS">Download thelukeweb!! (The non-internet version works better)
-<a href="https://github.com/luke975/thelukeweb">click here to go to the github page for it</a>
-
-
-
- <h1>TLW Patch Notes</h1>
- <p style="font-family: Comic Sans MS"> thelukeweb ONE Release 4 is a major update, and will include screenshots & links to ALL of my other projects! Including LukeClicker, its website, my animation channel, my minecraft server, and (maybe) more! This update will first release to downloadable version, though.
-    
-   
-   <p style="font-family: Comic Sans MS"> Patch notes for TLW One R3: Added Patch Notes Section, Merged version numbers of Web & Downloadable version, Better Camera (jk), and some other stuff.
-   Enjoy this quality of life update!!
-
-  <img src="Newcontentdoor2.webp"/>
-
-
-<!Doctype Html>  
-<Html>     
-<Head>      
-<Title>     
-</Title>  
-</Head>  
-<Body bgcolor="#32CD32">
-<br>   
-<p style="font-family: Comic Sans MS">look at dis cool text!!
-<div align='center'><img src='https://www.free-website-hit-counter.com/c.php?d=4&id=154241&s=32' border='0' alt='Free Website Hit Counter'></a><br / ><small><a>this is how much people visited the website!!</a></small></div>
 <!DOCTYPE html>
-<html>
-   <head>
-      <title></title>
-   </head>
-     
-   <body>
-      <h1>Youtube Channel</h1>
-        <a href="https://www.youtube.com/@LukeHDPlays">click here to see mah yt channel</a>
-      <p>
-      I am a person who makes youtube content (VERY COOL CHECK OUT)
-      </p>
-   </body>
-</html>
 
-<html>
-   <head>
-      <title></title>
-   </head>
-     
-   <body>
-      <h1>twitch!</h1>
-        <a href="https://www.twitch.tv/lukehdplaysonxbox/videos">click here to see my twitch!</a>
-      <p>
-      On twitch I live stream various things, like Minecraft, Fortnite, or Portal.
-      </p>
-   </body>
-</html>
 
-<body>
+<p style="font-family: Comic Sans MS">thelukeguide
+<a href="https://luke975.github.io/pmobile">Pumpkin Mobile Website</a>
+<a href="https://luke975.github.io/">thelukeweb</a>
 
-<img src="gamerpic.jpg"/>
 
-</body>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>LukeClicker Online</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+  </head>
+  <body>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=960 height=600></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">LukeClicker</div>
+      </div>
+    </div>
+    <script>
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var warningBanner = document.querySelector("#unity-warning");
 
-<body>
-
-<img src="underconstruction.gif"/>
-
-</body>
-
-<p style="font-family: Comic Sans MS">What is my favorite food? It is PIZZA!!!! Oh and watermelon
-
-<body>
-
-<img src="pizza.jpg"/>
-
-<img src="watermelon.jpg"/>
-
-</body>
-
-<p style="font-family: Comic Sans MS">What are my favorite games? Minecraft and Mario!
-
-<body>
-
-<img src="minecraft.webp"/>
-
-</body>
-
-<body>
-
-<img src="mario.jpg"/>
-
-</body>
-
-<p style="font-family: Comic Sans MS">But my FAVORITE color is Blue! Dont need a picture of that though.
-
-<html>
-   <head>
-    <style>
-      @font-face { font-family: Minecraft; src: url('Minecraft.TTF'); } 
-      h1 {
-         font-family: Minecraft
+      // Shows a temporary message banner/ribbon for a few seconds, or
+      // a permanent error message on top of the canvas if type=='error'.
+      // If type=='warning', a yellow highlight color is used.
+      // Modify or remove this function to customize the visually presented
+      // way that non-critical warnings and error messages are presented to the
+      // user.
+      function unityShowBanner(msg, type) {
+        function updateBannerVisibility() {
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+        }
+        var div = document.createElement('div');
+        div.innerHTML = msg;
+        warningBanner.appendChild(div);
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        else {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() {
+            warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }, 5000);
+        }
+        updateBannerVisibility();
       }
-    </style>
-   </head>
-   <body>
-      <h1>website still under construction!</h1>
-   </body>
-</html>
 
-<p style="font-family: Comic Sans MS">A BOTTLE OF WATER A DAY KEEPS BETTYS BITTER BUTTER AWAY
-<body>
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/R6 ONLINE.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/R6 ONLINE.data.br",
+        frameworkUrl: buildUrl + "/R6 ONLINE.framework.js.br",
+        codeUrl: buildUrl + "/R6 ONLINE.wasm.br",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "L Corp.",
+        productName: "LukeClicker",
+        productVersion: "1.6.0",
+        showBanner: unityShowBanner,
+      };
 
-<img src="waterbottle.jpg"/>
+      // By default, Unity keeps WebGL canvas render target size matched with
+      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+      // Set this to false if you want to decouple this synchronization from
+      // happening inside the engine, and you would instead like to size up
+      // the canvas DOM size and WebGL render target sizes yourself.
+      // config.matchWebGLToCanvasSize = false;
 
-</body>
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
 
-<html>
-   <head>
-    <style>
-      @font-face { font-family: Minecraft; src: url('Minecraft.TTF'); } 
-      h1 {
-         font-family: Minecraft
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+        container.className = "unity-mobile";
+        canvas.className = "unity-mobile";
+
+        // To lower canvas resolution on mobile devices to gain some
+        // performance, uncomment the following line:
+        // config.devicePixelRatio = 1;
+
+        unityShowBanner('WebGL builds are not supported on mobile devices.');
+      } else {
+        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+
+        canvas.style.width = "1280px";
+        canvas.style.height = "720px";
       }
-    </style>
-   </head>
-   <body>
-      <h1>BRITISH 101</h1>
-   </body>
+
+      loadingBar.style.display = "block";
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          loadingBar.style.display = "none";
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+    </script>
+  </body>
 </html>
-
-<p style="font-family: Comic Sans MS">Warm Up:
-<img src="british101-butter.jpg"/>
-<p style="font-family: Comic Sans MS">Pronounce This In A British Accent: The great Greek grape growers grow great Greek grapes greatly
-
-<html>
-   <head>
-    <style>
-      @font-face { font-family: Minecraft; src: url('Minecraft.TTF'); } 
-      h1 {
-         font-family: Minecraft
-      }
-    </style>
-   </head>
-   <body>
-      <h1>BRITISH 101 CLASS DISMISSED.</h1>
-   </body>
-</html>
-
-
-<html>
-   <head>
-    <style>
-      @font-face { font-family: Minecraft; src: url('Minecraft.TTF'); } 
-      h1 {
-         font-family: Minecraft
-      }
-    </style>
-   </head>
-   <body>
-      <h1>DA MEMES</h1>
-   </body>
-</html>
-<img src="PS4meme1.jpg"/>
-<img src="tacobellmeme1.jpeg"/>
-<img src="meme3.jpg"/>
-<img src="meme4.jpg"/>
-<img src="meme5.jpg"/>
-
-<html>
-   <head>
-    <style>
-      @font-face { font-family: Minecraft; src: url('Minecraft.TTF'); } 
-      h1 {
-         font-family: Minecraft
-      }
-    </style>
-   </head>
-   <body>
-      <h1>THATS ALL THE MEMES!</h1>
-   </body>
-
-
-<html>
-   <head>
-    <style>
-      @font-face { font-family: Minecraft; src: url('Minecraft.TTF'); } 
-      h1 {
-         font-family: Minecraft
-      }
-    </style>
-   </head>
-   <body>
-      <h1>website still under construction!</h1>
-   </body>
-</html>
-
-<img src="underconstruction.gif"/>
-
-<html>
-   <head>
-    <style>
-      @font-face { font-family: Minecraft; src: url('Minecraft.TTF'); } 
-      h1 {
-         font-family: Minecraft
-      }
-    </style>
-   </head>
-   <body>
-      <h1>Luke Reccommends!</h1>
-   </body>
-</html>
-
-<p style="font-family: Comic Sans MS">Games: Minecraft, Mario Kart Wii and Double Dash and 7 and 8, Super Mario Sunshine, and Portal 1 & 2
-
-<p style="font-family: Comic Sans MS">Movies: Minions, Minions: The Rise Of Gru, The Spongebob Squarepants Movie, The Super Mario Bros Movie, and Ghostbusters
-
-<p style="font-family: Comic Sans MS">Books (If You Have To Read): Diary of a Wimpy Kid and Gordon Korman Books
-
-
-
-
-
-
-
-<html>
-   <head>
-    <style>
-      @font-face { font-family: Minecraft; src: url('Minecraft.TTF'); } 
-      h1 {
-         font-family: Minecraft
-      }
-    </style>
-   </head>
-   <body>
-      <h1>Thats not all yet..</h1>
-   </body>
-</html>
-
-<p style="font-family:Comic Sans MS"/> thelukeguide
-<a href="links/index.html">Links</a>
-<a href="web page 2/thewebpage2.html">page 2</a>
-
-
-
-
-
-<p style="font-family: Comic Sans MS">brought to U by tottaly a real company Inc.
-<p style="font-family: Comic Sans MS">i hope you like my website. R4-WEB
